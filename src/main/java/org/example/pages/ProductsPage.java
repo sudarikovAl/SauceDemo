@@ -12,7 +12,17 @@ public class ProductsPage extends BasePage {
         super(driver);
     }
 
+    public void open() {
+        driver.get(BASE_URL + "inventory.html");
+    }
+
     public WebElement getTitle() {
         return driver.findElement(TITLE);
+    }
+
+    public void addToCart(String productName) {
+        String addToCartButton = "//div[text()='%s']/ancestor::div[@class='inventory_item']//button";
+        By fullLocator = By.xpath(String.format(addToCartButton, productName));
+        driver.findElement(fullLocator).click();
     }
 }

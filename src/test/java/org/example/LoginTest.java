@@ -1,7 +1,6 @@
 package org.example;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
@@ -13,7 +12,7 @@ public class LoginTest extends BaseTest {
     public void userShouldLoginWithValidCredentials() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
-        assertTrue(driver.findElement(By.cssSelector(".title")).isDisplayed(), "User Wasn't Logged");
+        assertTrue(productsPage.getTitle().isDisplayed(), "User Wasn't Logged");
     }
     @Test
     public void passwordShouldBeRequiredForLogin() {

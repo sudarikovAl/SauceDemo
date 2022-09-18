@@ -1,6 +1,5 @@
 package org.example;
 
-import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
@@ -14,10 +13,11 @@ public class LoginTest extends BaseTest {
         loginPage.login("standard_user", "secret_sauce");
         assertTrue(productsPage.getTitle().isDisplayed(), "User Wasn't Logged");
     }
+
     @Test
     public void passwordShouldBeRequiredForLogin() {
         loginPage.open();
-        loginPage.login("standard_user","");
-        assertEquals(loginPage.getError(),"Epic sadface: Password is required", "The error is incorrect");
+        loginPage.login("standard_user", "");
+        assertEquals(loginPage.getError(), "Epic sadface: Password is required", "The error is incorrect");
     }
 }
